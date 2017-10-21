@@ -79,7 +79,10 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>1.8.11</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 
 
 	</dependencies>
@@ -102,6 +105,7 @@
 	</profiles>
 
 
+
 	<build>
 		<resources>
 			<resource>
@@ -121,8 +125,28 @@
 						<skip>true</skip>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
+				</plugin>keymaps
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<fork>true</fork>
+					</configuration>
+					<dependencies>
+						<!-- spring热部署-->
+						<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
+						<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
+						<dependency>
+							<groupId>org.springframework</groupId>
+							<artifactId>springloaded</artifactId>
+							<version>1.2.8.RELEASE</version>
+						</dependency>
+
+					</dependencies>
 				</plugin>
+
 			</plugins>
+
 		</pluginManagement>
 	</build>
 
