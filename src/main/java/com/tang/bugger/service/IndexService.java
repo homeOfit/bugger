@@ -1,5 +1,7 @@
 package com.tang.bugger.service;
 
+import com.tang.bugger.util.ResultMessage;
+
 /**
  * @Author: tangqia@ecej.com
  * @Description:
@@ -8,5 +10,5 @@ package com.tang.bugger.service;
  */
 public interface IndexService {
 
-    String getIndex() throws Exception;
+    ResultMessage<String> getIndex() throws Exception;
 }

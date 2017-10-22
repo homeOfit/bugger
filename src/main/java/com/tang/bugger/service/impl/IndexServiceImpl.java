@@ -1,6 +1,9 @@
 package com.tang.bugger.service.impl;
 
+import com.tang.bugger.dao.IndexDao;
 import com.tang.bugger.service.IndexService;
+import com.tang.bugger.util.ResultMessage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,13 +16,17 @@ import java.util.List;
  */
 @Service("indexService")
 public class IndexServiceImpl implements IndexService{
+
+    @Autowired
+    private IndexDao indexDao;
+
     @Override
-    public String getIndex() throws Exception {
+    public ResultMessage<String> getIndex() throws Exception {
         try {
-            List l = null;
-            l.add(1);
-            return "indexaa";
+
+            return indexDao.getIndex();
         } catch (Exception e) {
+            //e.getMessage();
             throw e;
         }
 

@@ -1,6 +1,7 @@
 package com.tang.bugger.controller;
 
 import com.tang.bugger.service.IndexService;
+import com.tang.bugger.util.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,13 +20,14 @@ public class IndexController {
     private IndexService indexService;
 
     @RequestMapping("indexaa")
-    public String getIndexHtml() {
-        String index  = null;
+    public ResultMessage<String> getIndexHtml() {
+        ResultMessage<String> index  = null;
         try {
             index = indexService.getIndex();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return index;
+
     }
 }

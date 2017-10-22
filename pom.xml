@@ -89,6 +89,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 
 
 	</dependencies>
@@ -131,25 +135,25 @@
 						<skip>true</skip>
 						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
-				</plugin>keymaps
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<configuration>
-						<fork>true</fork>
-					</configuration>
-					<dependencies>
-						<!-- spring热部署-->
-						<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
-						<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
-						<dependency>
-							<groupId>org.springframework</groupId>
-							<artifactId>springloaded</artifactId>
-							<version>1.2.8.RELEASE</version>
-						</dependency>
-
-					</dependencies>
 				</plugin>
+				<!--<plugin>-->
+					<!--<groupId>org.springframework.boot</groupId>-->
+					<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+					<!--<configuration>-->
+						<!--<fork>true</fork>-->
+					<!--</configuration>-->
+					<!--<dependencies>-->
+						<!--&lt;!&ndash; spring热部署&ndash;&gt;-->
+						<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/springloaded &ndash;&gt;-->
+						<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/springloaded &ndash;&gt;-->
+						<!--<dependency>-->
+							<!--<groupId>org.springframework</groupId>-->
+							<!--<artifactId>springloaded</artifactId>-->
+							<!--<version>1.2.8.RELEASE</version>-->
+						<!--</dependency>-->
+
+					<!--</dependencies>-->
+				<!--</plugin>-->
 
 			</plugins>
 
