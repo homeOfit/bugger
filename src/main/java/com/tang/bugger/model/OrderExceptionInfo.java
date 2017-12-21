@@ -1,11 +1,13 @@
 package com.tang.bugger.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-@Data
 public class OrderExceptionInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     //alias
@@ -58,6 +60,150 @@ public class OrderExceptionInfo implements Serializable {
      */
     private java.util.Date createTime;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public static String getTableAlias() {
+        return TABLE_ALIAS;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBusinessNo() {
+        return businessNo;
+    }
+
+    public void setBusinessNo(String businessNo) {
+        this.businessNo = businessNo;
+    }
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+
+    public Integer getLogLevel() {
+        return logLevel;
+    }
+
+    public void setLogLevel(Integer logLevel) {
+        this.logLevel = logLevel;
+    }
+
+    public String getLogInfo() {
+        return logInfo;
+    }
+
+    public void setLogInfo(String logInfo) {
+        this.logInfo = logInfo;
+    }
+
+    public String getRequestIp() {
+        return requestIp;
+    }
+
+    public void setRequestIp(String requestIp) {
+        this.requestIp = requestIp;
+    }
+
+    public String getRequestParam() {
+        return requestParam;
+    }
+
+    public void setRequestParam(String requestParam) {
+        this.requestParam = requestParam;
+    }
+
+    public Date getRequestTime() {
+        return requestTime;
+    }
+
+    public void setRequestTime(Date requestTime) {
+        this.requestTime = requestTime;
+    }
+
+    public String getLogNo() {
+        return logNo;
+    }
+
+    public void setLogNo(String logNo) {
+        this.logNo = logNo;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getInfo0() {
+        return info0;
+    }
+
+    public void setInfo0(String info0) {
+        this.info0 = info0;
+    }
+
+    public String getInfo1() {
+        return info1;
+    }
+
+    public void setInfo1(String info1) {
+        this.info1 = info1;
+    }
+
+    public String getInfo2() {
+        return info2;
+    }
+
+    public void setInfo2(String info2) {
+        this.info2 = info2;
+    }
+
+    public String getInfo3() {
+        return info3;
+    }
+
+    public void setInfo3(String info3) {
+        this.info3 = info3;
+    }
+
+    public String getDeliveryId() {
+        return deliveryId;
+    }
+
+    public void setDeliveryId(String deliveryId) {
+        this.deliveryId = deliveryId;
+    }
+
+    public List<String> getLogNoList() {
+        return logNoList;
+    }
+
+    public void setLogNoList(List<String> logNoList) {
+        this.logNoList = logNoList;
+    }
+
     private String info0;
     private String info1;
     private String info2;
@@ -70,5 +216,27 @@ public class OrderExceptionInfo implements Serializable {
 
     private List<String> logNoList;
 
+    @Override
+    public String toString() {
+        return "OrderExceptionInfo{" +
+                "id=" + id +
+                ", businessNo='" + businessNo + '\'' +
+                ", businessName='" + businessName + '\'' +
+                ", logLevel=" + logLevel +
+                ", logInfo='" + logInfo + '\'' +
+                ", requestIp='" + requestIp + '\'' +
+                ", requestParam='" + requestParam + '\'' +
+                ", requestTime=" + requestTime +
+                ", logNo='" + logNo + '\'' +
+                ", delFlag=" + delFlag +
+                ", createTime=" + createTime +
+                ", info0='" + info0 + '\'' +
+                ", info1='" + info1 + '\'' +
+                ", info2='" + info2 + '\'' +
+                ", info3='" + info3 + '\'' +
+                ", deliveryId='" + deliveryId + '\'' +
+                ", logNoList=" + logNoList +
+                '}';
+    }
 }
 

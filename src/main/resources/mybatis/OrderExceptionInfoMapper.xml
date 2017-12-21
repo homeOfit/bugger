@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ecej.order.exception.OrderExceptionInfo">
+<mapper namespace="com.tang.bugger.model.OrderExceptionInfo">
 	<resultMap id="BaseResultMap" type="com.tang.bugger.model.OrderExceptionInfo">
 		<id column="id" property="id" />
 		<result column="business_no" property="businessNo" />
