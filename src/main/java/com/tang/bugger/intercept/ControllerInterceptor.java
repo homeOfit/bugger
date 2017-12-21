@@ -62,7 +62,7 @@ public class ControllerInterceptor {
      * @return JsonResult（被拦截方法的执行结果，或需要登录的错误提示。） 
      */  
     @Around("myPointcut()") //指定拦截器规则；也可以直接把“execution(* com.xjj.........)”写进这里
-    public Object Interceptor(ProceedingJoinPoint pjp){
+    public Object interceptor(ProceedingJoinPoint pjp){
         long beginTime = System.currentTimeMillis();  
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         Method method = signature.getMethod(); //获取被拦截的方法

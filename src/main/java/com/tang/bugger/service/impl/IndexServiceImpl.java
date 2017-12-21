@@ -26,7 +26,6 @@ public class IndexServiceImpl implements IndexService{
 
             return indexDao.getIndex();
         } catch (Exception e) {
-            //e.getMessage();
             throw e;
         }
 
