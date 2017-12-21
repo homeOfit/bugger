@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecej.order.exception.OrderExceptionInfo">
+	<resultMap id="BaseResultMap" type="com.tang.bugger.model.OrderExceptionInfo">
+		<id column="id" property="id" />
+		<result column="business_no" property="businessNo" />
+		<result column="business_name" property="businessName" />
+		<result column="log_level" property="logLevel" />
+		<result column="log_info" property="logInfo" />
+		<result column="request_ip" property="requestIp" />
+		<result column="request_param" property="requestParam" />
+		<result column="request_time" property="requestTime" />
+		<result column="log_no" property="logNo" />
+		<result column="del_flag" property="delFlag" />
+		<result column="create_time" property="createTime" />
+		<result column="delivery_id" property="deliveryId" />
+		<result column="info0" property="info0" />
+		<result column="info1" property="info1" />
+		<result column="info2" property="info2" />
+		<result column="info3" property="info3" />
+	</resultMap>
+
+	<sql id="Table_Name">
+		t_log_error
+	</sql>
+
+	<sql id="Base_Column">
+		id,
+		business_no,
+		business_name,
+		log_level,
+		log_info,
+		request_ip,
+		request_param,
+		request_time,
+		log_no,
+		del_flag,
+		create_time,
+		info0,
+		info1,
+		info2,
+		info3,
+		delivery_id
+	</sql>
+
+	<sql id="Base_Where">
+		<trim suffixOverrides="AND">
+		<if test="id != null">
+			id= #{id}
+	           AND 
+		</if>
+		<if test="businessNo != null">
+			business_no= #{businessNo}
+	           AND 
+		</if>
+		<if test="businessName != null">
+			business_name= #{businessName}
+	           AND 
+		</if>
+		<if test="logLevel != null">
+			log_level= #{logLevel}
+	           AND 
+		</if>
+		<if test="logInfo != null">
+			log_info= #{logInfo}
+	           AND 
+		</if>
+		<if test="requestIp != null">
+			request_ip= #{requestIp}
+	           AND 
+		</if>
+		<if test="requestParam != null">
+			request_param= #{requestParam}
+	           AND 
+		</if>
+		<if test="requestTime != null">
+			request_time= #{requestTime}
+	           AND 
+		</if>
+		<if test="logNo != null">
+			log_no= #{logNo}
+	           AND 
+		</if>
+		<if test="delFlag != null">
+			del_flag= #{delFlag}
+	           AND 
+		</if>
+		<if test="createTime != null">
+			create_time= #{createTime}
+	           AND 
+		</if>
+		<if test="info0 != null">
+			info0= #{info0}
+	           AND 
+		</if>
+		<if test="info1 != null">
+			info1= #{info1}
+	           AND 
+		</if>
+		<if test="info2 != null">
+			info2= #{info2}
+	           AND 
+		</if>
+		<if test="info3 != null">
+			info3= #{info3}
+			AND
+		</if>
+		<if test="deliveryId != null">
+			delivery_id= #{deliveryId}
+			AND
+		</if>
+		<if test="logNoList != null and logNoList.size() > 0" >
+			log_no in
+			<foreach item="item" index="index" collection="logNoList" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+
+		</trim>
+	</sql>
+	
+    <sql id="Base_Select">
+			select
+		<include refid="Base_Column" />
+		from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</sql>
+
+
+
+	<insert id="insert" parameterType="com.tang.bugger.model.OrderExceptionInfo" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		<include refid="Table_Name" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+	<if test="id != null">
+		id,
+	</if>
+	<if test="businessNo != null">
+		business_no,
+	</if>
+	<if test="businessName != null">
+		business_name,
+	</if>
+	<if test="logLevel != null">
+		log_level,
+	</if>
+	<if test="logInfo != null">
+		log_info,
+	</if>
+	<if test="requestIp != null">
+		request_ip,
+	</if>
+	<if test="requestParam != null">
+		request_param,
+	</if>
+	<if test="requestTime != null">
+		request_time,
+	</if>
+	<if test="logNo != null">
+		log_no,
+	</if>
+	<if test="delFlag != null">
+		del_flag,
+	</if>
+	<if test="createTime != null">
+		create_time,
+	</if>
+	<if test="info0 != null">
+		info0,
+	</if>
+	<if test="info1 != null">
+		info1,
+	</if>
+	<if test="info2 != null">
+		info2,
+	</if>
+	<if test="info3 != null">
+		info3,
+	</if>
+	<if test="deliveryId != null">
+		delivery_id,
+	</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+	<if test="id != null">
+		#{id},
+	</if>
+	<if test="businessNo != null">
+		#{businessNo},
+	</if>
+	<if test="businessName != null">
+		#{businessName},
+	</if>
+	<if test="logLevel != null">
+		#{logLevel},
+	</if>
+	<if test="logInfo != null">
+		#{logInfo},
+	</if>
+	<if test="requestIp != null">
+		#{requestIp},
+	</if>
+	<if test="requestParam != null">
+		#{requestParam},
+	</if>
+	<if test="requestTime != null">
+		#{requestTime},
+	</if>
+	<if test="logNo != null">
+		#{logNo},
+	</if>
+	<if test="delFlag != null">
+		#{delFlag},
+	</if>
+	<if test="createTime != null">
+		#{createTime},
+	</if>
+	<if test="info0 != null">
+		#{info0},
+	</if>
+	<if test="info1 != null">
+		#{info1},
+	</if>
+	<if test="info2 != null">
+		#{info2},
+	</if>
+	<if test="info3 != null">
+		#{info3},
+	</if>
+	<if test="deliveryId != null">
+		#{deliveryId},
+	</if>
+		</trim>
+	</insert>
+	
+	<insert id="insertList" parameterType="java.util.List" >
+	    /*!mycat:catlet=demo.catlets.BatchInsertSequence */
+	    insert into 
+		<include refid="Table_Name" />
+			(	
+
+					business_no
+			           ,
+
+					business_name
+			           ,
+
+					log_level
+			           ,
+
+					log_info
+			           ,
+
+					request_ip
+			           ,
+
+					request_param
+			           ,
+
+					request_time
+			           ,
+
+					log_no
+			           ,
+
+					del_flag
+			           ,
+
+					create_time
+			           ,
+
+					info0
+			           ,
+
+					info1
+			           ,
+
+					info2
+			           ,
+
+					info3
+			) 
+	    values
+	    <foreach collection="list" item="item" separator=",">
+			(	
+
+						#{item.businessNo}
+				           ,
+
+						#{item.businessName}
+				           ,
+
+						#{item.logLevel}
+				           ,
+
+						#{item.logInfo}
+				           ,
+
+						#{item.requestIp}
+				           ,
+
+						#{item.requestParam}
+				           ,
+
+						#{item.requestTime}
+				           ,
+
+						#{item.logNo}
+				           ,
+
+						#{item.delFlag}
+				           ,
+
+						#{item.createTime}
+				           ,
+
+						#{item.info0}
+				           ,
+
+						#{item.info1}
+				           ,
+
+						#{item.info2}
+				           ,
+
+						#{item.info3}
+			)
+	    </foreach>
+	 </insert>
+
+	<update id="update" parameterType="com.tang.bugger.model.OrderExceptionInfo">
+		update
+		<include refid="Table_Name" />
+		<set>
+	<if test="id != null">
+		id=#{id},
+	</if>
+	<if test="businessNo != null">
+		business_no=#{businessNo},
+	</if>
+	<if test="businessName != null">
+		business_name=#{businessName},
+	</if>
+	<if test="logLevel != null">
+		log_level=#{logLevel},
+	</if>
+	<if test="logInfo != null">
+		log_info=#{logInfo},
+	</if>
+	<if test="requestIp != null">
+		request_ip=#{requestIp},
+	</if>
+	<if test="requestParam != null">
+		request_param=#{requestParam},
+	</if>
+	<if test="requestTime != null">
+		request_time=#{requestTime},
+	</if>
+	<if test="logNo != null">
+		log_no=#{logNo},
+	</if>
+	<if test="delFlag != null">
+		del_flag=#{delFlag},
+	</if>
+	<if test="createTime != null">
+		create_time=#{createTime},
+	</if>
+	<if test="info0 != null">
+		info0=#{info0},
+	</if>
+	<if test="info1 != null">
+		info1=#{info1},
+	</if>
+	<if test="info2 != null">
+		info2=#{info2},
+	</if>
+	<if test="info3 != null">
+		info3=#{info3},
+	</if>
+		</set>
+		where 
+			      id=#{id}
+	</update>
+
+	<update id="updateByEntity" parameterType="com.tang.bugger.model.OrderExceptionInfo">
+		UPDATE
+		<include refid="Table_Name" />
+		<set>
+			<if test="s.businessNo != null">
+                    business_no=#{s.businessNo},
+			</if>
+			<if test="s.businessName != null">
+                    business_name=#{s.businessName},
+			</if>
+			<if test="s.logLevel != null">
+                    log_level=#{s.logLevel},
+			</if>
+			<if test="s.logInfo != null">
+                    log_info=#{s.logInfo},
+			</if>
+			<if test="s.requestIp != null">
+                    request_ip=#{s.requestIp},
+			</if>
+			<if test="s.requestParam != null">
+                    request_param=#{s.requestParam},
+			</if>
+			<if test="s.requestTime != null">
+                    request_time=#{s.requestTime},
+			</if>
+			<if test="s.logNo != null">
+                    log_no=#{s.logNo},
+			</if>
+			<if test="s.delFlag != null">
+                    del_flag=#{s.delFlag},
+			</if>
+			<if test="s.createTime != null">
+                    create_time=#{s.createTime},
+			</if>
+			<if test="s.info0 != null">
+                    info0=#{s.info0},
+			</if>
+			<if test="s.info1 != null">
+                    info1=#{s.info1},
+			</if>
+			<if test="s.info2 != null">
+                    info2=#{s.info2},
+			</if>
+			<if test="s.info3 != null">
+                    info3=#{s.info3}
+			</if>
+		</set>
+		<where> 
+			<trim prefix="(" suffix=")" suffixOverrides="AND">
+			<if test="w.id != null">
+                    id=#{w.id}
+	                   AND 
+ 			</if>
+			<if test="w.businessNo != null">
+                    business_no=#{w.businessNo}
+	                   AND 
+ 			</if>
+			<if test="w.businessName != null">
+                    business_name=#{w.businessName}
+	                   AND 
+ 			</if>
+			<if test="w.logLevel != null">
+                    log_level=#{w.logLevel}
+	                   AND 
+ 			</if>
+			<if test="w.logInfo != null">
+                    log_info=#{w.logInfo}
+	                   AND 
+ 			</if>
+			<if test="w.requestIp != null">
+                    request_ip=#{w.requestIp}
+	                   AND 
+ 			</if>
+			<if test="w.requestParam != null">
+                    request_param=#{w.requestParam}
+	                   AND 
+ 			</if>
+			<if test="w.requestTime != null">
+                    request_time=#{w.requestTime}
+	                   AND 
+ 			</if>
+			<if test="w.logNo != null">
+                    log_no=#{w.logNo}
+	                   AND 
+ 			</if>
+			<if test="w.delFlag != null">
+                    del_flag=#{w.delFlag}
+	                   AND 
+ 			</if>
+			<if test="w.createTime != null">
+                    create_time=#{w.createTime}
+	                   AND 
+ 			</if>
+			<if test="w.info0 != null">
+                    info0=#{w.info0}
+	                   AND 
+ 			</if>
+			<if test="w.info1 != null">
+                    info1=#{w.info1}
+	                   AND 
+ 			</if>
+			<if test="w.info2 != null">
+                    info2=#{w.info2}
+	                   AND 
+ 			</if>
+			<if test="w.info3 != null">
+                    info3=#{w.info3}
+ 			</if>
+			</trim>
+		</where>
+	</update>
+
+	<delete id="delete" parameterType="com.tang.bugger.model.OrderExceptionInfo">
+		delete from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</delete>
+
+	<select id="count" parameterType="java.util.Map" resultType="int">
+		select count(1) from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</select>
+
+	<select id="selectOne" parameterType="com.tang.bugger.model.OrderExceptionInfo" resultMap="BaseResultMap">
+	  <include refid="Base_Select" />
+	</select>
+
+	<select id="selectList"  parameterType="com.tang.bugger.model.OrderExceptionInfo" resultMap="BaseResultMap">
+	    <include refid="Base_Select" />
+	</select>
+		
+
+     <select id="selectForUpdate" parameterType="com.tang.bugger.model.OrderExceptionInfo" resultMap="BaseResultMap" useCache="false">
+		 <include refid="Base_Select" />
+		for update
+	</select>
+	
+
+</mapper>
