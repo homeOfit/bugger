@@ -514,7 +514,7 @@
 		</where>
 	</select>
 
-	<select id="selectOne" parameterType="com.tang.bugger.model.OrderExceptionInfo" resultMap="BaseResultMap">
+	<select id="selectOne" parameterType="com.tang.bugger.model.OrderExceptionInfo" resultMap="BaseResultMap" useCache="false" flushCache="true">
 	  <include refid="Base_Select" />
 	</select>
 

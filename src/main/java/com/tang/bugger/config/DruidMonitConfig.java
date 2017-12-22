@@ -61,7 +61,7 @@ public class DruidMonitConfig {
     @Bean
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut druidStatPointcut = new JdkRegexpMethodPointcut();
-        String patterns = "com.ecej.*";
+        String patterns = "com.tang.*";
         druidStatPointcut.setPatterns(new String[]{patterns});
         return druidStatPointcut;
     }

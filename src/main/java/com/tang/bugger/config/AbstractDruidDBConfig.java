@@ -82,6 +82,7 @@ public abstract class AbstractDruidDBConfig {
     private SqlSessionFactory createSqlSessionFactory(DataSource dataSource, String mapperLocations) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
+
         PageHelper pageHelper = new PageHelper();
         Properties props = new Properties();
         props.setProperty("dialect", "mysql");
@@ -91,6 +92,12 @@ public abstract class AbstractDruidDBConfig {
         props.setProperty("params", "count=countSql");
         pageHelper.setProperties(props);
         sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper});
+
+
+        org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+        configuration.setCacheEnabled(false);
+        sqlSessionFactoryBean.setConfiguration(configuration);
+
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources(mapperLocations));
         return sqlSessionFactoryBean.getObject();

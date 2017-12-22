@@ -25,7 +25,7 @@ public class TestServiceImpl {
         self.process();
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void process() {
         OrderExceptionInfo orderExceptionInfo = new OrderExceptionInfo();
         orderExceptionInfo.setId(1);
@@ -40,37 +40,30 @@ public class TestServiceImpl {
         } catch (InterruptedException e){
             e.printStackTrace();
         }
+
+        OrderExceptionInfo orderExceptionInfo2 = new OrderExceptionInfo();
+        orderExceptionInfo2.setId(1);
+        orderExceptionInfo2 = dataSource.selectOne(orderExceptionInfo2);
+        System.out.println("333333" + orderExceptionInfo2);
+        System.out.println("33333333 " + (orderExceptionInfo==orderExceptionInfo2));
+
         OrderExceptionInfo orderExceptionInfo1 = new OrderExceptionInfo();
-        orderExceptionInfo1.setId(1);
+        orderExceptionInfo1.setBusinessName("99");
         orderExceptionInfo1 = dataSource.selectOne(orderExceptionInfo1);
         System.out.println("2222222" + orderExceptionInfo1);
         //System.out.println(1/0);
-
-        selectOne();
+        System.out.println("222222222 " + (orderExceptionInfo==orderExceptionInfo1));
     }
 
 
-    @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
+   @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void update() {
         OrderExceptionInfo orderExceptionInfo = new OrderExceptionInfo();
         orderExceptionInfo.setId(1);
-        orderExceptionInfo.setBusinessName("99999999");
+        orderExceptionInfo.setBusinessName("99");
         orderExceptionInfo.setCreateTime(new Date());
         dataSource.update(orderExceptionInfo);
-
-        OrderExceptionInfo orderExceptionInfo1 = new OrderExceptionInfo();
-        orderExceptionInfo1.setId(1);
-        orderExceptionInfo1 = dataSource.selectOne(orderExceptionInfo1);
-        System.out.println("2222222---1  " + orderExceptionInfo1);
+        //System.out.println(1/0);
     }
-
-
-    private void selectOne() {
-        OrderExceptionInfo orderExceptionInfo1 = new OrderExceptionInfo();
-        orderExceptionInfo1.setId(1);
-        orderExceptionInfo1 = dataSource.selectOne(orderExceptionInfo1);
-        System.out.println("33333" + orderExceptionInfo1);
-    }
-
 
 }

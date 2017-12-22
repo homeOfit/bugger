@@ -125,12 +125,12 @@ public class BaseDao extends SqlSessionDaoSupport implements IBaseDao {
     public <T> List<T> selectList(Object entity) {
         String statementPostfix = entity.getClass().getName() + ".selectList";
         return this.selectList(statementPostfix, entity, (String)null);
-    }  @Override
+    }
     @Override
     public <T> List<T> selectList(T entity, String orderBy) {
         String statementPostfix = entity.getClass().getName() + ".selectList";
         return this.selectList(statementPostfix, entity, orderBy);
-    }  @Override
+    }
     @Override
     public <T> List<T> selectList(String statementPostfix, Object entity) {
         return this.selectList(statementPostfix, entity, (String)null);
