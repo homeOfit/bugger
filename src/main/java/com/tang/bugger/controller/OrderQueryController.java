@@ -10,7 +10,7 @@ import com.ecej.order.unified.gateway.api.vo.*;
 import com.tang.bugger.util.MessageEnum;
 import com.tang.bugger.util.ResultMessage;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,9 +93,9 @@ public class OrderQueryController {
     }
 
     @ApiOperation(value="更新用户详细信息", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
-    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "SupplementMultiUnifiedOrderReqParam")
+    @ApiImplicitParam(name = "SupplementMultiUnifiedOrderReqParam", value = "用户详细实体user", required = true, dataType = "SupplementMultiUnifiedOrderReqParam")
     @RequestMapping(value = "/orderSupplementTest", method = RequestMethod.GET)
-    public ResultMessage<String> orderSupplymentTest() {
+    public ResultMessage<String> orderSupplymentTest(@RequestBody SupplementMultiUnifiedOrderReqParam SupplementMultiUnifiedOrderReqParam) {
         try {
             SupplementMultiUnifiedOrderReqParam supplementMultiUnifiedOrderReqParam = new SupplementMultiUnifiedOrderReqParam();
             supplementMultiUnifiedOrderReqParam.setParentWorkOrderNo("A208801180125889942");
