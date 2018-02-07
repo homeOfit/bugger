@@ -92,10 +92,10 @@ public class OrderQueryController {
         }
     }
 
-    @ApiOperation(value="更新用户详细信息", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
-    @ApiImplicitParam(name = "SupplementMultiUnifiedOrderReqParam", value = "用户详细实体user", required = true, dataType = "SupplementMultiUnifiedOrderReqParam")
+    @ApiOperation(value="补单接口", notes="根据父订单号补单")
+    @ApiImplicitParam(name = "SupplementMultiUnifiedOrderReqParam", value = "补单实体", required = true, dataType = "SupplementMultiUnifiedOrderReqParam")
     @RequestMapping(value = "/orderSupplementTest", method = RequestMethod.GET)
-    public ResultMessage<String> orderSupplymentTest(@RequestBody SupplementMultiUnifiedOrderReqParam SupplementMultiUnifiedOrderReqParam) {
+    public ResultMessage<String> orderSupplymentTest() {
         try {
             SupplementMultiUnifiedOrderReqParam supplementMultiUnifiedOrderReqParam = new SupplementMultiUnifiedOrderReqParam();
             supplementMultiUnifiedOrderReqParam.setParentWorkOrderNo("A208801180125889942");
@@ -106,6 +106,20 @@ public class OrderQueryController {
             supplementMultiServiceOrderEntity.setGuid("000000000");
             supplementMultiServiceOrderEntity.setOldGuid("-4884343868602781824");
             supplementMultiServiceOrderEntity.setNightModel(0);
+            List<MultiServiceItemEntity> multiServiceItemEntities = new ArrayList<>();
+            MerchantEntity merchantEntity = new MerchantEntity();
+            merchantEntity.setBearTheCost(0);
+            merchantEntity.setMerchantId("12");
+            MultiServiceItemEntity multiServiceItemEntity = new MultiServiceItemEntity();
+            multiServiceItemEntity.setMerchantEntity(merchantEntity);
+            multiServiceItemEntity.setNum(1);
+            multiServiceItemEntity.setServiceClassId(1144);
+            multiServiceItemEntity.setServiceItemId(159);
+            multiServiceItemEntity.setCompanyId(123);
+            multiServiceItemEntities.add(multiServiceItemEntity);
+            supplementMultiServiceOrderEntity.setMultiServiceItemEntityList(multiServiceItemEntities);
+
+
             supplementMultiServiceOrderEntities.add(supplementMultiServiceOrderEntity);
             supplementMultiUnifiedOrderReqParam.setSupplementMultiServiceOrderEntityList(supplementMultiServiceOrderEntities);
             com.ecej.order.model.baseResult.ResultMessage<Map<String, com.ecej.order.model.baseResult.ResultMessage<MultiUnifiedOrderDTO>>>  resultMessage = supplementMultiUnifiedOrderService.supplementMultiUnifiedCreateOrder(supplementMultiUnifiedOrderReqParam);
