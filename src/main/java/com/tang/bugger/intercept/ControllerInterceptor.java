@@ -36,24 +36,26 @@ public class ControllerInterceptor {
     public void before(JoinPoint joinPoint) {
         String className = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
-        logger.warn(className + "的" + methodName + "执行了");
+        //logger.warn(className + "的" + methodName + "执行了");
         Object[] args = joinPoint.getArgs();
         StringBuilder log = new StringBuilder("入参为");
         for (Object arg : args) {
             log.append(arg + " ");
         }
-        logger.warn(log.toString());
+        //logger.warn(log.toString());
     }
 
     @AfterReturning(value = "execution(* com.tang.bugger.controller..*(..)) || execution(* com.tang.bugger.service..*(..)) && execution(* com.tang.bugger.dao..*(..))", returning = "returnVal")
     public void afterReturin(Object returnVal) {
-        logger.warn("方法正常结束了,方法的返回值:" + returnVal);
+
+        //logger.warn("方法正常结束了,方法的返回值:" + returnVal);
     }
 
 
     @AfterThrowing(value = "myPointcut()", throwing = "e")
     public void afterThrowing(Throwable e) {
-        logger.error("通知中发现未知异常", e);
+
+        //logger.error("通知中发现未知异常", e);
     }
       
     /** 
@@ -70,7 +72,7 @@ public class ControllerInterceptor {
 
         Set<Object> allParams = new LinkedHashSet<>(); //保存所有请求参数，用于输出到日志中
           
-        logger.info("请求开始，方法：{}", methodName);  
+        //logger.info("请求开始，方法：{}", methodName);
         Object result = null;
   
         Object[] args = pjp.getArgs();  
@@ -110,7 +112,7 @@ public class ControllerInterceptor {
           
         if(result instanceof ResultMessage){
             long costMs = System.currentTimeMillis() - beginTime;
-            logger.info("{}请求结束，耗时：{}ms", methodName, costMs);
+            //logger.info("{}请求结束，耗时：{}ms", methodName, costMs);
         } else if (result instanceof Exception) {
             result = new ResultMessage<>(10001,"失败", JSONUtils.toJSONString(result));
 

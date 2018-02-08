@@ -26,4 +26,8 @@ public class OrderTestDao {
     public void insert(OrderTest o) {
         dataSource.insert(o);
     }
+
+    public void update(OrderTest o) {
+        dataSource.update(o);
+    }
 }

@@ -30,7 +30,7 @@ public class OrderPersistStateChangeListener implements PersistStateMachineHandl
             OrderTest o = orderTestDao.selectOne(query);
             OrderStatus status = state.getId();
             o.setStatus(status.name());
-            orderTestDao.insert(o);
+            orderTestDao.update(o);
 
         }
     }
