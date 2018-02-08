@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tang.bugger.model.OrderTest">
+	<resultMap id="BaseResultMap" type="com.tang.bugger.model.OrderTest">
+		<id column="id" property="id" />
+		<result column="order_id" property="orderId" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<sql id="Table_Name">
+		order_test
+	</sql>
+
+	<sql id="Base_Column">
+		id,
+		order_id,
+		status
+	</sql>
+
+	<sql id="Base_Where">
+		<trim suffixOverrides="AND">
+		<if test="id != null">
+			id= #{id}
+	           AND 
+		</if>
+
+		<if test="orderId != null">
+			order_id= #{orderId}
+			AND
+		</if>
+		<if test="status != null">
+			status= #{status}
+		</if>
+
+		</trim>
+	</sql>
+	
+    <sql id="Base_Select">
+			select
+		<include refid="Base_Column" />
+		from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</sql>
+
+
+
+	<insert id="insert" parameterType="com.tang.bugger.model.OrderTest" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		<include refid="Table_Name" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderId != null">
+				order_Id
+				,
+			</if>
+			<if test="status != null">
+				status
+				,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderId != null">
+				#{orderId},
+			</if>
+			<if test="status != null">
+				#{status},
+			</if>
+		</trim>
+	</insert>
+
+
+	<delete id="delete" parameterType="com.tang.bugger.model.OrderTest">
+		delete from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</delete>
+
+	<select id="count" parameterType="java.util.Map" resultType="int">
+		select count(1) from
+		<include refid="Table_Name" />
+		<where>
+			<include refid="Base_Where" />
+		</where>
+	</select>
+
+	<select id="selectOne" parameterType="com.tang.bugger.model.OrderTest" resultMap="BaseResultMap" useCache="false" flushCache="true">
+	  <include refid="Base_Select" />
+	</select>
+
+	<select id="selectList"  parameterType="com.tang.bugger.model.OrderTest" resultMap="BaseResultMap">
+	    <include refid="Base_Select" />
+	</select>
+		
+
+     <select id="selectForUpdate" parameterType="com.tang.bugger.model.OrderTest" resultMap="BaseResultMap" useCache="false">
+		 <include refid="Base_Select" />
+		for update
+	</select>
+	
+
+</mapper>

@@ -1,12 +1,10 @@
 package com.tang.bugger.service.impl;
 
-import com.tang.bugger.dao.IndexDao;
+import com.tang.bugger.dao.impl.IndexDao;
 import com.tang.bugger.service.IndexService;
 import com.tang.bugger.util.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @Author: tangqia@ecej.com

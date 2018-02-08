@@ -1,4 +1,4 @@
-package com.tang.bugger.dao;
+package com.tang.bugger.dao.impl;
 
 import com.tang.bugger.util.ResultMessage;
 import org.springframework.stereotype.Component;
@@ -8,6 +8,8 @@ import java.util.List;
 
 @Component("indexDao")
 public class IndexDao {
+
+
 
     public ResultMessage<String> getIndex() {
 
